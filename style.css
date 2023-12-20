@@ -134,6 +134,7 @@ select {
 
 .grid {
 	display: grid;
+	align-items: center;
 }
 
 .accordion-container {
@@ -276,6 +277,10 @@ select {
 
 	.question {
 		padding-inline-end: 2.5em;
+	}
+
+	.grid {
+		align-items: normal;
 	}
 
 	.plus-icon,
