@@ -277,7 +277,9 @@ select {
 	}
 
 	.question {
-		padding-inline-end: 2.5em;
+		font-size: var(--fs-400);
+		font-weight: var(--fw-700);
+		padding-inline-end: 0.75em;
 	}
 
 	.body-container {
@@ -329,5 +331,8 @@ select {
 		width: 100%;
 		max-width: var(--max-container-width);
 		height: var(--max-container-height);
+	}
+	.question {
+		font-size: var(--fs-500);
 	}
 }
