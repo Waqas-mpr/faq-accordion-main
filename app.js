@@ -13,7 +13,7 @@ function updateUi(index) {
 	answer[index].classList.toggle("hidden");
 }
 
-let expanded;
+let expanded = -1;
 
 function expandUi(element, index) {
 	element.addEventListener("click", () => {
@@ -30,18 +30,28 @@ function expandUi(element, index) {
 
 function toggleQuestion(element, index) {
 	element.addEventListener("click", () => {
-		if (index === expanded) {
-			updateUi(index);
-			counter--;
-		} else if (counter > 0) {
-			updateUi(expanded);
-			expanded = -1;
-			counter = 0;
-		} else {
-			expanded = index;
-			updateUi(index);
-			counter++;
-		}
+		// if (index === expanded) {
+		// 	updateUi(index);
+		// 	console.log(`index== ${index}`);
+		// 	console.log(`expanded== ${expanded}`);
+		// 	console.log(`counter== ${counter}`);
+		// 	expanded = -1;
+		// 	counter = 0;
+		// } else if (counter > 0) {
+		// 	updateUi(expanded);
+		// 	console.log(`index> ${index}`);
+		// 	console.log(`expanded> ${expanded}`);
+		// 	console.log(`counter> ${counter}`);
+		// 	expanded = -1;
+		// 	counter = 0;
+		// } else {
+		// 	expanded = index;
+		// 	updateUi(index);
+		// 	counter++;
+		// 	console.log(`index ${index}`);
+		// 	console.log(`expanded ${expanded}`);
+		// 	console.log(`counter ${counter}`);
+		// }
 	});
 }
 

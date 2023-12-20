@@ -6,6 +6,7 @@
 	--grayish-purple: hsl(292, 16%, 49%);
 	--dark-purple: hsl(292, 42%, 14%);
 	--dark-purple-opacity: hsl(292, 42%, 14%, 0.4);
+	--pink: #ad28eb;
 
 	--ff-work-sans: "Work Sans", sans-serif;
 
@@ -25,14 +26,15 @@
 	--fs-900: 2.5rem;
 
 	--max-container-width: 1300px;
-	--max-container-height: 815px;
-	--container-padding: 2em;
+	--max-container-height: 825px;
+	--container-padding-inline: 2em;
+	--container-padding-block: 2.5em;
 
 	--max-height-top-section: 290px;
 	--max-height-bottom-section: 525px;
 
 	--max-width-card: 545px;
-	--max-height-card: 550px;
+	--max-height-card: 480px;
 
 	--gap: 1em;
 }
@@ -139,7 +141,8 @@ select {
 	background-color: var(--light-pink);
 	width: 100%;
 	max-width: var(--max-container-width);
-	height: var(--max-container-height);
+	min-height: var(--max-container-height);
+	height: auto;
 	margin-inline: auto;
 }
 
@@ -149,27 +152,41 @@ select {
 }
 
 .header-pattern {
-	background-image: url(assets/images/background-pattern-desktop.svg);
+	/* background-image: url(assets/images/background-pattern-desktop.svg);
 	background-repeat: no-repeat;
 	background-position: top;
-	background-size: 100% 290px;
+	background-size: auto 290px; */
+}
+
+.grid-rows {
+	display: grid;
+	grid-template-rows: auto 1fr;
+	align-items: center;
+	gap: 1.5em;
 }
 
 .accordion-card {
 	max-width: var(--max-width-card);
 	width: 100%;
-	max-height: var(--max-height-card);
+	min-height: var(--max-height-card);
+
 	height: auto;
 	background-color: var(--white);
-	padding: var(--container-padding);
+	padding-inline: var(--container-padding-inline);
+	padding-block: var(--container-padding-block);
 	border-radius: 1em;
 	margin-inline: auto;
+
+	box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+		rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .accordion-header {
 	display: flex;
 	gap: 1.2em;
 	align-items: center;
+	/* margin-block-end: 2em; */
 }
 
 .star-icon {
@@ -183,19 +200,19 @@ select {
 }
 
 .faqs-container {
-	margin-block-start: 2em;
+	/* margin-block-start: 2.5em; */
 	display: grid;
-	gap: 1.5em;
+	gap: 1.75em;
 }
 
 .faq-wrapper {
 	display: grid;
-	gap: 1em;
-	cursor: pointer;
+	gap: 1.25em;
 }
 
 .faqs-question {
-	display: flex;
+	display: grid;
+	grid-template-columns: 1fr auto;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -206,23 +223,102 @@ select {
 .question {
 	font-size: var(--fs-500);
 	font-weight: var(--fw-700);
+	cursor: pointer;
+}
+
+.question:hover,
+.question:focus-visible {
+	color: var(--pink);
 }
 
 .plus-minus-icons {
 	display: flex;
+	cursor: pointer;
+	transition: height 2s ease-out;
 }
 
 .answer {
 	font-size: var(--fs-400);
 	font-weight: var(--fw-500);
 	color: var(--dark-purple-opacity);
-}
+	padding-block-end: 1em;
 
-.toggle-answer {
-	display: block;
+	animation: slideDown 1.5s ease forwards;
 }
 
 .h-line {
 	height: 0.1rem;
 	background-color: var(--light-pink);
+	/* margin-block: 0.25em; */
+}
+@keyframes slideDown {
+	from {
+		transform: translateY(0%);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(5%);
+		opacity: 1;
+	}
+}
+
+@media (max-width: 600px) {
+	:root {
+		--max-width-card: 450px;
+		--max-height-card: 550px;
+		--max-container-height: 100vh;
+	}
+	.accordion-container {
+		padding-inline: 2em;
+	}
+	.header-pattern {
+		background-image: url(assets/images/background-pattern-mobile.svg);
+		background-repeat: no-repeat;
+		background-position: top center;
+		background-size: auto 420px;
+	}
+
+	.question {
+		padding-inline-end: 2.5em;
+	}
+
+	.plus-icon,
+	.minus-icon {
+		width: 32px;
+		height: auto;
+	}
+
+	.answer {
+		padding-block-end: 0.5em;
+	}
+
+	.faqs-container {
+		gap: 1.25em;
+	}
+
+	.faq-wrapper {
+		gap: 0.75em;
+	}
+
+	.grid-rows {
+		gap: 0.75em;
+	}
+
+	.header-title {
+		font-size: var(--fs-800);
+		font-weight: var(--fw-800);
+	}
+}
+
+@media (min-width: 601px) {
+	:root {
+		--max-width-card: 545px;
+		--max-height-card: 480px;
+	}
+	.header-pattern {
+		background-image: url(assets/images/background-pattern-desktop.svg);
+		background-repeat: no-repeat;
+		background-position: top;
+		background-size: contain minmax(100%, 100vw) auto;
+	}
 }
