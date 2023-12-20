@@ -28,33 +28,6 @@ function expandUi(element, index) {
 	});
 }
 
-function toggleQuestion(element, index) {
-	element.addEventListener("click", () => {
-		// if (index === expanded) {
-		// 	updateUi(index);
-		// 	console.log(`index== ${index}`);
-		// 	console.log(`expanded== ${expanded}`);
-		// 	console.log(`counter== ${counter}`);
-		// 	expanded = -1;
-		// 	counter = 0;
-		// } else if (counter > 0) {
-		// 	updateUi(expanded);
-		// 	console.log(`index> ${index}`);
-		// 	console.log(`expanded> ${expanded}`);
-		// 	console.log(`counter> ${counter}`);
-		// 	expanded = -1;
-		// 	counter = 0;
-		// } else {
-		// 	expanded = index;
-		// 	updateUi(index);
-		// 	counter++;
-		// 	console.log(`index ${index}`);
-		// 	console.log(`expanded ${expanded}`);
-		// 	console.log(`counter ${counter}`);
-		// }
-	});
-}
-
 function minimizeUi(element, index) {
 	element.addEventListener("click", () => {
 		updateUi(index);
@@ -66,8 +39,6 @@ function toggleUi() {
 	for (let index = 0; index < totalIndex; index++) {
 		expandUi(plus[index], index);
 		minimizeUi(minus[index], index);
-
-		toggleQuestion(question[index], index);
 	}
 }
 
