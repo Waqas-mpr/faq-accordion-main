@@ -134,14 +134,13 @@ select {
 
 .grid {
 	display: grid;
-	align-items: center;
 }
 
 .accordion-container {
 	background-color: var(--light-pink);
-	width: 100%;
+	width: 100dvw;
 	max-width: var(--max-container-width);
-	min-height: var(--max-container-height);
+	max-height: var(--max-container-height);
 	height: auto;
 	margin-inline: auto;
 }
@@ -152,10 +151,10 @@ select {
 }
 
 .header-pattern {
-	/* background-image: url(assets/images/background-pattern-desktop.svg);
+	background-image: url(assets/images/background-pattern-desktop.svg);
 	background-repeat: no-repeat;
 	background-position: top;
-	background-size: auto 290px; */
+	background-size: auto 290px;
 }
 
 .grid-rows {
@@ -186,7 +185,6 @@ select {
 	display: flex;
 	gap: 1.2em;
 	align-items: center;
-	/* margin-block-end: 2em; */
 }
 
 .star-icon {
@@ -200,7 +198,6 @@ select {
 }
 
 .faqs-container {
-	/* margin-block-start: 2.5em; */
 	display: grid;
 	gap: 1.75em;
 }
@@ -249,7 +246,6 @@ select {
 .h-line {
 	height: 0.1rem;
 	background-color: var(--light-pink);
-	/* margin-block: 0.25em; */
 }
 @keyframes slideDown {
 	from {
@@ -275,7 +271,7 @@ select {
 		background-image: url(assets/images/background-pattern-mobile.svg);
 		background-repeat: no-repeat;
 		background-position: top center;
-		background-size: auto 420px;
+		background-size: 100vw auto;
 	}
 
 	.question {
@@ -314,11 +310,12 @@ select {
 	:root {
 		--max-width-card: 545px;
 		--max-height-card: 480px;
+		--max-container-height: 825px;
 	}
-	.header-pattern {
-		background-image: url(assets/images/background-pattern-desktop.svg);
-		background-repeat: no-repeat;
-		background-position: top;
-		background-size: contain minmax(100%, 100vw) auto;
+
+	.accordion-container {
+		width: 100%;
+		max-width: var(--max-container-width);
+		height: var(--max-container-height);
 	}
 }
