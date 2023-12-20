@@ -33,7 +33,7 @@
 	--max-height-top-section: 290px;
 	--max-height-bottom-section: 525px;
 
-	--max-width-card: 545px;
+	--max-width-card: 542px;
 	--max-height-card: 480px;
 
 	--gap: 1em;
@@ -132,14 +132,15 @@ select {
 /*   		 			*/
 /*------------------------------*/
 
-.grid {
+.body-container {
 	display: grid;
 	align-items: center;
+	padding-inline: 1em;
 }
 
 .accordion-container {
 	background-color: var(--light-pink);
-	width: 100dvw;
+	width: 100%;
 	max-width: var(--max-container-width);
 	max-height: var(--max-container-height);
 	height: auto;
@@ -271,16 +272,17 @@ select {
 	.header-pattern {
 		background-image: url(assets/images/background-pattern-mobile.svg);
 		background-repeat: no-repeat;
-		background-position: top center;
-		background-size: 100vw auto;
+		background-position: top;
+		background-size: auto 40%;
 	}
 
 	.question {
 		padding-inline-end: 2.5em;
 	}
 
-	.grid {
+	.body-container {
 		align-items: normal;
+		padding-inline: 0;
 	}
 
 	.plus-icon,
@@ -318,8 +320,9 @@ select {
 		--max-container-height: 825px;
 	}
 
-	.grid {
-		align-items: center;
+	.body-container {
+		display: grid;
+		align-self: center;
 	}
 
 	.accordion-container {
