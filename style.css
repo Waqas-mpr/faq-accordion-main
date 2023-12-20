@@ -318,6 +318,10 @@ select {
 		--max-container-height: 825px;
 	}
 
+	.grid {
+		align-items: center;
+	}
+
 	.accordion-container {
 		width: 100%;
 		max-width: var(--max-container-width);
